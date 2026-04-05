@@ -1,0 +1,596 @@
+﻿<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeXusVPN | Secure VPN Service</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nexus: {
+              bg: '#0a0a0a',
+              surface: '#111111',
+              card: '#171717',
+              accent: '#00ff88',
+              muted: '#9ca3af'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 20px rgba(0, 255, 136, 0.25)'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-nexus-bg text-white antialiased selection:bg-nexus-accent/20">
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-nexus-bg/90 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#home" class="text-2xl font-bold tracking-tight text-nexus-accent">NeXusVPN</a>
+
+      <button id="menuToggle" class="rounded-md border border-white/20 p-2 text-white md:hidden" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="hidden items-center gap-6 md:flex">
+        <a href="#home" class="text-sm font-medium text-white/80 transition hover:text-nexus-accent">Home</a>
+        <a href="#features" class="text-sm font-medium text-white/80 transition hover:text-nexus-accent">Features</a>
+        <a href="#pricing" class="text-sm font-medium text-white/80 transition hover:text-nexus-accent">Pricing</a>
+        <a href="#download" class="text-sm font-medium text-white/80 transition hover:text-nexus-accent">Download</a>
+        <a href="#support" class="text-sm font-medium text-white/80 transition hover:text-nexus-accent">Support</a>
+        <button id="openAccountDesktop" class="rounded-full border border-nexus-accent/70 px-4 py-2 text-sm font-semibold text-nexus-accent transition hover:bg-nexus-accent hover:text-black">Login</button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden border-t border-white/10 px-4 py-4 md:hidden">
+      <div class="flex flex-col gap-3">
+        <a href="#home" class="mobile-link text-sm font-medium text-white/80 transition hover:text-nexus-accent">Home</a>
+        <a href="#features" class="mobile-link text-sm font-medium text-white/80 transition hover:text-nexus-accent">Features</a>
+        <a href="#pricing" class="mobile-link text-sm font-medium text-white/80 transition hover:text-nexus-accent">Pricing</a>
+        <a href="#download" class="mobile-link text-sm font-medium text-white/80 transition hover:text-nexus-accent">Download</a>
+        <a href="#support" class="mobile-link text-sm font-medium text-white/80 transition hover:text-nexus-accent">Support</a>
+        <button id="openAccountMobile" class="mt-1 rounded-full border border-nexus-accent/70 px-4 py-2 text-sm font-semibold text-nexus-accent transition hover:bg-nexus-accent hover:text-black">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="relative overflow-hidden">
+      <div class="absolute -left-20 top-10 h-72 w-72 rounded-full bg-nexus-accent/15 blur-3xl"></div>
+      <div class="absolute right-0 top-20 h-80 w-80 rounded-full bg-emerald-400/10 blur-3xl"></div>
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-28">
+        <div class="space-y-6">
+          <p class="inline-flex items-center rounded-full border border-nexus-accent/50 bg-nexus-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-nexus-accent">No logs policy</p>
+          <h1 class="text-4xl font-extrabold leading-tight sm:text-5xl">Browse Securely &amp; Anonymously.</h1>
+          <p class="max-w-xl text-base text-white/70 sm:text-lg">Protect your data on public Wi-Fi, stream globally, and keep your activity private with blazing-fast servers worldwide.</p>
+          <a href="#pricing" class="inline-flex items-center rounded-full bg-nexus-accent px-6 py-3 text-sm font-bold text-black transition hover:scale-105 hover:shadow-glow">Get Started</a>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-transparent p-6 shadow-2xl">
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div class="rounded-2xl border border-white/10 bg-nexus-card p-4">
+              <p class="text-white/60">Global Locations</p>
+              <p class="mt-2 text-2xl font-bold text-nexus-accent">82+</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-nexus-card p-4">
+              <p class="text-white/60">Uptime</p>
+              <p class="mt-2 text-2xl font-bold text-nexus-accent">99.99%</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-nexus-card p-4">
+              <p class="text-white/60">Active Users</p>
+              <p class="mt-2 text-2xl font-bold text-nexus-accent">1.2M</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-nexus-card p-4">
+              <p class="text-white/60">Support</p>
+              <p class="mt-2 text-2xl font-bold text-nexus-accent">24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold">Security Features</h2>
+        <p class="mt-3 text-white/70">Built for privacy, speed, and reliability.</p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="group rounded-2xl border border-white/10 bg-nexus-card p-6 transition hover:-translate-y-1 hover:border-nexus-accent/50 hover:shadow-glow">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-nexus-accent/10 text-nexus-accent">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold">AES-256 Encryption</h3>
+          <p class="mt-2 text-sm text-white/70">Bank-grade encryption secures every packet end-to-end.</p>
+        </article>
+
+        <article class="group rounded-2xl border border-white/10 bg-nexus-card p-6 transition hover:-translate-y-1 hover:border-nexus-accent/50 hover:shadow-glow">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-nexus-accent/10 text-nexus-accent">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M4 7h16"></path>
+              <path d="M7 7V5a5 5 0 0110 0v2"></path>
+              <rect x="5" y="7" width="14" height="13" rx="2"></rect>
+              <path d="M12 11v5"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold">No-Logs Policy</h3>
+          <p class="mt-2 text-sm text-white/70">Your browsing activity is never tracked, stored, or sold.</p>
+        </article>
+
+        <article class="group rounded-2xl border border-white/10 bg-nexus-card p-6 transition hover:-translate-y-1 hover:border-nexus-accent/50 hover:shadow-glow">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-nexus-accent/10 text-nexus-accent">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M3 12h18"></path>
+              <path d="M12 3v18"></path>
+              <circle cx="12" cy="12" r="9"></circle>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold">Kill Switch</h3>
+          <p class="mt-2 text-sm text-white/70">Automatically blocks traffic if the VPN tunnel drops.</p>
+        </article>
+
+        <article class="group rounded-2xl border border-white/10 bg-nexus-card p-6 transition hover:-translate-y-1 hover:border-nexus-accent/50 hover:shadow-glow">
+          <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-nexus-accent/10 text-nexus-accent">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold">10 Gbps Servers</h3>
+          <p class="mt-2 text-sm text-white/70">Ultra-fast network for gaming, streaming, and remote work.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pricing" class="border-y border-white/10 bg-nexus-surface/60 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <h2 class="text-3xl font-bold">Simple Pricing</h2>
+          <p class="mt-3 text-white/70">Choose the plan that fits your needs.</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-2xl border border-white/10 bg-nexus-card p-6 transition hover:-translate-y-1 hover:border-nexus-accent/40">
+            <h3 class="text-xl font-semibold">Monthly</h3>
+            <p class="mt-3 text-3xl font-bold">$12.99</p>
+            <p class="mt-1 text-sm text-white/60">per month</p>
+            <button class="mt-6 w-full rounded-full border border-white/20 px-4 py-2 text-sm font-semibold transition hover:border-nexus-accent hover:text-nexus-accent">Choose Plan</button>
+          </article>
+
+          <article class="relative rounded-2xl border border-nexus-accent/70 bg-nexus-card p-6 shadow-glow transition hover:-translate-y-1">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-nexus-accent px-3 py-1 text-xs font-bold text-black">Best Value</span>
+            <h3 class="text-xl font-semibold">Yearly</h3>
+            <p class="mt-3 text-3xl font-bold">$4.99</p>
+            <p class="mt-1 text-sm text-white/60">per month (billed yearly)</p>
+            <button class="mt-6 w-full rounded-full bg-nexus-accent px-4 py-2 text-sm font-bold text-black transition hover:brightness-110">Choose Plan</button>
+          </article>
+
+          <article class="rounded-2xl border border-white/10 bg-nexus-card p-6 transition hover:-translate-y-1 hover:border-nexus-accent/40">
+            <h3 class="text-xl font-semibold">2-Year</h3>
+            <p class="mt-3 text-3xl font-bold">$2.99</p>
+            <p class="mt-1 text-sm text-white/60">per month (billed every 2 years)</p>
+            <button class="mt-6 w-full rounded-full border border-white/20 px-4 py-2 text-sm font-semibold transition hover:border-nexus-accent hover:text-nexus-accent">Choose Plan</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold">Download Apps</h2>
+        <p class="mt-3 text-white/70">Install NeXusVPN on your favorite platform.</p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <button class="download-btn rounded-xl border border-white/15 bg-nexus-card px-5 py-4 text-left transition hover:border-nexus-accent/60 hover:text-nexus-accent" data-platform="Windows">Windows</button>
+        <button class="download-btn rounded-xl border border-white/15 bg-nexus-card px-5 py-4 text-left transition hover:border-nexus-accent/60 hover:text-nexus-accent" data-platform="Mac">Mac</button>
+        <button class="download-btn rounded-xl border border-white/15 bg-nexus-card px-5 py-4 text-left transition hover:border-nexus-accent/60 hover:text-nexus-accent" data-platform="iOS">iOS</button>
+        <button class="download-btn rounded-xl border border-white/15 bg-nexus-card px-5 py-4 text-left transition hover:border-nexus-accent/60 hover:text-nexus-accent" data-platform="Android">Android</button>
+      </div>
+
+      <div id="setupInstructions" class="mt-6 hidden rounded-2xl border border-nexus-accent/40 bg-nexus-accent/5 p-5 text-sm leading-relaxed text-white/85"></div>
+    </section>
+
+    <section id="support" class="border-t border-white/10 bg-nexus-surface/40 py-16">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div>
+          <h2 class="text-3xl font-bold">Support Center</h2>
+          <p class="mt-3 text-white/70">Quick answers to common questions.</p>
+
+          <div class="mt-6 space-y-3" id="faqContainer">
+            <article class="faq-item rounded-xl border border-white/10 bg-nexus-card">
+              <button class="faq-toggle flex w-full items-center justify-between px-4 py-4 text-left font-semibold" type="button">
+                What is your refund policy?
+                <span class="text-nexus-accent">+</span>
+              </button>
+              <div class="faq-content hidden px-4 pb-4 text-sm text-white/70">We offer a 30-day money-back guarantee for all plans if you are not satisfied.</div>
+            </article>
+
+            <article class="faq-item rounded-xl border border-white/10 bg-nexus-card">
+              <button class="faq-toggle flex w-full items-center justify-between px-4 py-4 text-left font-semibold" type="button">
+                How do I set up NeXusVPN?
+                <span class="text-nexus-accent">+</span>
+              </button>
+              <div class="faq-content hidden px-4 pb-4 text-sm text-white/70">Download the app for your platform, login to your account, and connect with one click.</div>
+            </article>
+
+            <article class="faq-item rounded-xl border border-white/10 bg-nexus-card">
+              <button class="faq-toggle flex w-full items-center justify-between px-4 py-4 text-left font-semibold" type="button">
+                How many devices can I use?
+                <span class="text-nexus-accent">+</span>
+              </button>
+              <div class="faq-content hidden px-4 pb-4 text-sm text-white/70">You can secure up to 10 devices simultaneously under one NeXusVPN account.</div>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-2xl font-bold">Contact Us</h3>
+          <form id="contactForm" class="mt-6 space-y-4 rounded-2xl border border-white/10 bg-nexus-card p-6">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-medium text-white/85">Name</label>
+              <input id="name" name="name" type="text" required class="w-full rounded-lg border border-white/15 bg-black/40 px-4 py-3 text-sm outline-none transition focus:border-nexus-accent" placeholder="Your Name" />
+            </div>
+            <div>
+              <label for="email" class="mb-2 block text-sm font-medium text-white/85">Email</label>
+              <input id="email" name="email" type="email" required class="w-full rounded-lg border border-white/15 bg-black/40 px-4 py-3 text-sm outline-none transition focus:border-nexus-accent" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="message" class="mb-2 block text-sm font-medium text-white/85">Message</label>
+              <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-white/15 bg-black/40 px-4 py-3 text-sm outline-none transition focus:border-nexus-accent" placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" class="w-full rounded-full bg-nexus-accent px-5 py-3 text-sm font-bold text-black transition hover:brightness-110">Send Message</button>
+            <p id="contactStatus" class="hidden text-sm text-nexus-accent"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 py-6 text-center text-sm text-white/50">
+    &copy; <span id="year"></span> NeXusVPN. All rights reserved.
+  </footer>
+
+  <div id="accountModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 p-4">
+    <div class="w-full max-w-md rounded-2xl border border-white/15 bg-nexus-surface p-6 shadow-2xl">
+      <div class="mb-4 flex items-start justify-between">
+        <h3 class="text-xl font-bold">NeXusVPN Account</h3>
+        <button id="closeModal" class="rounded-md p-1 text-white/70 transition hover:text-nexus-accent" aria-label="Close modal">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div id="authView">
+        <div class="mb-4 grid grid-cols-2 gap-2 rounded-lg bg-black/30 p-1 text-sm">
+          <button id="showLogin" class="rounded-md bg-nexus-accent px-3 py-2 font-semibold text-black">Login</button>
+          <button id="showRegister" class="rounded-md px-3 py-2 font-semibold text-white/80 transition hover:text-nexus-accent">Register</button>
+        </div>
+
+        <form id="authForm" class="space-y-4">
+          <input id="authEmail" type="email" required placeholder="Email" class="w-full rounded-lg border border-white/15 bg-black/40 px-4 py-3 text-sm outline-none transition focus:border-nexus-accent" />
+          <input id="authPassword" type="password" required minlength="6" placeholder="Password" class="w-full rounded-lg border border-white/15 bg-black/40 px-4 py-3 text-sm outline-none transition focus:border-nexus-accent" />
+          <button id="authSubmit" type="submit" class="w-full rounded-full bg-nexus-accent px-5 py-3 text-sm font-bold text-black transition hover:brightness-110">Login</button>
+        </form>
+        <p id="authStatus" class="mt-3 text-sm text-white/70"></p>
+      </div>
+
+      <div id="dashboardView" class="hidden space-y-4">
+        <p class="text-sm text-white/70">Logged in as <span id="userEmail" class="font-semibold text-white"></span></p>
+
+        <div class="rounded-xl border border-white/10 bg-black/25 p-4">
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <p class="text-sm font-semibold">VPN Connection</p>
+              <p id="connectionStatus" class="mt-1 text-sm text-red-400">Disconnected</p>
+            </div>
+            <label class="relative inline-flex cursor-pointer items-center">
+              <input id="vpnToggle" type="checkbox" class="peer sr-only" />
+              <div class="h-6 w-11 rounded-full bg-white/20 transition peer-checked:bg-nexus-accent"></div>
+              <span class="absolute left-1 top-1 h-4 w-4 rounded-full bg-white transition peer-checked:translate-x-5"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-white/10 bg-black/25 p-4">
+          <p class="text-sm font-semibold">VPN Configuration File</p>
+          <p class="mt-1 text-xs text-white/60">Generate and download your demo `.ovpn` profile.</p>
+          <a id="configLink" href="#" class="mt-3 inline-block rounded-full border border-nexus-accent/60 px-4 py-2 text-xs font-semibold text-nexus-accent transition hover:bg-nexus-accent hover:text-black" download>Download Config</a>
+        </div>
+
+        <button id="logoutBtn" class="w-full rounded-full border border-white/20 px-4 py-2 text-sm font-semibold transition hover:border-red-400 hover:text-red-400">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const storageKeys = {
+      users: 'nexusvpn_users',
+      session: 'nexusvpn_session',
+      connected: 'nexusvpn_connected'
+    };
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const openAccountDesktop = document.getElementById('openAccountDesktop');
+    const openAccountMobile = document.getElementById('openAccountMobile');
+    const accountModal = document.getElementById('accountModal');
+    const closeModal = document.getElementById('closeModal');
+
+    const showLogin = document.getElementById('showLogin');
+    const showRegister = document.getElementById('showRegister');
+    const authForm = document.getElementById('authForm');
+    const authEmail = document.getElementById('authEmail');
+    const authPassword = document.getElementById('authPassword');
+    const authSubmit = document.getElementById('authSubmit');
+    const authStatus = document.getElementById('authStatus');
+    const authView = document.getElementById('authView');
+    const dashboardView = document.getElementById('dashboardView');
+    const userEmail = document.getElementById('userEmail');
+    const configLink = document.getElementById('configLink');
+    const vpnToggle = document.getElementById('vpnToggle');
+    const connectionStatus = document.getElementById('connectionStatus');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    const downloadButtons = document.querySelectorAll('.download-btn');
+    const setupInstructions = document.getElementById('setupInstructions');
+    const faqItems = document.querySelectorAll('.faq-item');
+    const contactForm = document.getElementById('contactForm');
+    const contactStatus = document.getElementById('contactStatus');
+
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
+
+    let mode = 'login';
+
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('hidden');
+      const expanded = !mobileMenu.classList.contains('hidden');
+      menuToggle.setAttribute('aria-expanded', String(expanded));
+    }
+
+    menuToggle.addEventListener('click', toggleMobileMenu);
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    function openModal() {
+      accountModal.classList.remove('hidden');
+      accountModal.classList.add('flex');
+    }
+
+    function closeAccountModal() {
+      accountModal.classList.add('hidden');
+      accountModal.classList.remove('flex');
+      authStatus.textContent = '';
+    }
+
+    openAccountDesktop.addEventListener('click', openModal);
+    openAccountMobile.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      openModal();
+    });
+    closeModal.addEventListener('click', closeAccountModal);
+
+    accountModal.addEventListener('click', (e) => {
+      if (e.target === accountModal) closeAccountModal();
+    });
+
+    function getUsers() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKeys.users)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveUsers(users) {
+      localStorage.setItem(storageKeys.users, JSON.stringify(users));
+    }
+
+    function getSession() {
+      return localStorage.getItem(storageKeys.session);
+    }
+
+    function setSession(email) {
+      localStorage.setItem(storageKeys.session, email);
+    }
+
+    function clearSession() {
+      localStorage.removeItem(storageKeys.session);
+      localStorage.removeItem(storageKeys.connected);
+    }
+
+    function setMode(nextMode) {
+      mode = nextMode;
+      const isLogin = mode === 'login';
+
+      showLogin.className = isLogin
+        ? 'rounded-md bg-nexus-accent px-3 py-2 font-semibold text-black'
+        : 'rounded-md px-3 py-2 font-semibold text-white/80 transition hover:text-nexus-accent';
+
+      showRegister.className = !isLogin
+        ? 'rounded-md bg-nexus-accent px-3 py-2 font-semibold text-black'
+        : 'rounded-md px-3 py-2 font-semibold text-white/80 transition hover:text-nexus-accent';
+
+      authSubmit.textContent = isLogin ? 'Login' : 'Register';
+      authStatus.textContent = '';
+    }
+
+    showLogin.addEventListener('click', () => setMode('login'));
+    showRegister.addEventListener('click', () => setMode('register'));
+
+    function createConfigText(email) {
+      return `client
+proto udp
+remote vpn.nexusvpn.demo 1194
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+auth SHA256
+cipher AES-256-GCM
+remote-cert-tls server
+verb 3
+
+# Demo profile for ${email}
+# Generated by NeXusVPN portal`;
+    }
+
+    function applyConnectionState(connected) {
+      vpnToggle.checked = connected;
+      connectionStatus.textContent = connected ? 'Connected' : 'Disconnected';
+      connectionStatus.className = connected ? 'mt-1 text-sm text-nexus-accent' : 'mt-1 text-sm text-red-400';
+      localStorage.setItem(storageKeys.connected, String(connected));
+    }
+
+    vpnToggle.addEventListener('change', () => {
+      applyConnectionState(vpnToggle.checked);
+    });
+
+    function renderAuthState() {
+      const sessionEmail = getSession();
+
+      if (sessionEmail) {
+        authView.classList.add('hidden');
+        dashboardView.classList.remove('hidden');
+        userEmail.textContent = sessionEmail;
+        openAccountDesktop.textContent = 'Account';
+        openAccountMobile.textContent = 'Account';
+
+        const configBlob = new Blob([createConfigText(sessionEmail)], { type: 'text/plain' });
+        const configUrl = URL.createObjectURL(configBlob);
+        configLink.href = configUrl;
+        configLink.download = `nexusvpn-${sessionEmail.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ovpn`;
+
+        const connectedState = localStorage.getItem(storageKeys.connected) === 'true';
+        applyConnectionState(connectedState);
+      } else {
+        authView.classList.remove('hidden');
+        dashboardView.classList.add('hidden');
+        openAccountDesktop.textContent = 'Login';
+        openAccountMobile.textContent = 'Login';
+        authForm.reset();
+        setMode('login');
+      }
+    }
+
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = authEmail.value.trim().toLowerCase();
+      const password = authPassword.value;
+
+      if (!email || !password) {
+        authStatus.textContent = 'Please fill all fields.';
+        authStatus.className = 'mt-3 text-sm text-amber-400';
+        return;
+      }
+
+      const users = getUsers();
+      const existing = users.find((user) => user.email === email);
+
+      if (mode === 'register') {
+        if (existing) {
+          authStatus.textContent = 'Account already exists. Please login.';
+          authStatus.className = 'mt-3 text-sm text-amber-400';
+          return;
+        }
+
+        users.push({ email, password });
+        saveUsers(users);
+        setSession(email);
+        authStatus.textContent = 'Registration successful.';
+        authStatus.className = 'mt-3 text-sm text-nexus-accent';
+      } else {
+        if (!existing || existing.password !== password) {
+          authStatus.textContent = 'Invalid email or password.';
+          authStatus.className = 'mt-3 text-sm text-red-400';
+          return;
+        }
+
+        setSession(email);
+        authStatus.textContent = 'Login successful.';
+        authStatus.className = 'mt-3 text-sm text-nexus-accent';
+      }
+
+      renderAuthState();
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      clearSession();
+      renderAuthState();
+    });
+
+    const setupCopy = {
+      Windows: 'Windows setup: Download installer, run setup, login with your account, and click Connect.',
+      Mac: 'Mac setup: Download the .dmg, drag NeXusVPN to Applications, login, and connect securely.',
+      iOS: 'iOS setup: Install from App Store, sign in, allow VPN profile installation, then tap Connect.',
+      Android: 'Android setup: Install from Play Store, sign in, approve VPN permission, and tap Connect.'
+    };
+
+    downloadButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const platform = btn.dataset.platform;
+        setupInstructions.textContent = setupCopy[platform] || 'Setup instructions not available.';
+        setupInstructions.classList.remove('hidden');
+      });
+    });
+
+    faqItems.forEach((item) => {
+      const toggle = item.querySelector('.faq-toggle');
+      const content = item.querySelector('.faq-content');
+      const icon = toggle.querySelector('span');
+
+      toggle.addEventListener('click', () => {
+        const isHidden = content.classList.contains('hidden');
+
+        faqItems.forEach((other) => {
+          other.querySelector('.faq-content').classList.add('hidden');
+          other.querySelector('.faq-toggle span').textContent = '+';
+        });
+
+        if (isHidden) {
+          content.classList.remove('hidden');
+          icon.textContent = '-';
+        }
+      });
+    });
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(contactForm);
+      const name = String(formData.get('name') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const message = String(formData.get('message') || '').trim();
+
+      if (!name || !email || !message) {
+        contactStatus.textContent = 'Please complete all fields.';
+        contactStatus.className = 'text-sm text-amber-400';
+        contactStatus.classList.remove('hidden');
+        return;
+      }
+
+      contactStatus.textContent = 'Thanks, your message has been received. Our team will contact you shortly.';
+      contactStatus.className = 'text-sm text-nexus-accent';
+      contactStatus.classList.remove('hidden');
+      contactForm.reset();
+    });
+
+    renderAuthState();
+  </script>
+</body>
+</html>
+
